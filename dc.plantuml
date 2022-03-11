@@ -1,0 +1,33 @@
+@startuml 
+
+class Entreprise {
+    nom: String
+}
+
+class Artisan {
+    prenom: String
+    nom: String
+    salaire: int
+    horaires: String
+    tel: String
+}
+
+class Chantier {
+    dateDebut: String
+    dateFin: String
+    adresse: String
+}
+
+class Affecter {
+    nbHeures: int
+    debutMission: String
+    finMission: String
+    int calculerPaye()
+}
+
+Entreprise "0..1" --> "0..*" Artisan : "Employer"
+Entreprise "0..1" --> "0..*" Chantier : "Gérer"
+
+(Artisan, Chantier) . Affecter
+
+@enduml
